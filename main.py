@@ -6,6 +6,13 @@ def menu():
     #print menu
     print(f'Menu\n-------------\n1. Encode\n2. Decode\n3. Quit')
 
+def decode(password):
+    decodedPassword = ''
+    for char in password:
+        new_digit = (int(char) - 3) % 10
+        decodedPassword += str(new_digit)
+    return decodedPassword
+
 def encode(password):
     #create empty string for encoded password
     newPassword = ''
@@ -36,8 +43,8 @@ if __name__ == "__main__":
             storedPassword = input()
             encodedPassword = encode(storedPassword)
 
-        #if pick == 2:
-            #decode
+        if pick == 2:
+            print(f"The encoded password is {encodedPassword}, and the original password is {decode(encodedPassword)}.")
 
         #if user selected 3 terminate program
         if pick == 3:
